@@ -1,0 +1,24 @@
+services:
+  sportscenter-mysql:
+    image: mysql
+    restart: always
+    container_name: "electonics-store-mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+      - electronics-store-mysql-data:/var/lib/mysql
+
+  sportscenter-redis:
+    image: "redis:latest"
+    container_name: "electronics-store-redis-container"
+    ports:
+      - "6379:6379"
+    volumes:
+      - electronics-store-redis-data:/data
+
+volumes:
+  electronics-store-mysql-data:
+  electronics-store-redis-data:
