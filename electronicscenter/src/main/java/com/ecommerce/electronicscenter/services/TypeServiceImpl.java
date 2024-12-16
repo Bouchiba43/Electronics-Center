@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class TypeServiceImpl implements TypeService{
     private final TypeRepository typeRepository;
 
-    public TypeServiceImpl(TypeService typeService, TypeRepository typeRepository) {
+    public TypeServiceImpl(TypeRepository typeRepository) {
         this.typeRepository = typeRepository;
     }
 
