@@ -1,5 +1,5 @@
 services:
-  sportscenter-mysql:
+  electronics-store-mysql:
     image: mysql
     restart: always
     container_name: "electonics-store-mysql"
@@ -11,7 +11,7 @@ services:
       - ./data.sql:/docker-entrypoint-initdb.d/data.sql
       - electronics-store-mysql-data:/var/lib/mysql
 
-  sportscenter-redis:
+  electronics-store-redis:
     image: "redis:latest"
     container_name: "electronics-store-redis-container"
     ports:
