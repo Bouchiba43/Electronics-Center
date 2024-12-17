@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductResponse getProductById(Integer productId) {
+    public ProductResponse getProductById(String productId) {
         log.info("fetching Product by Id: {}", productId);
         Product product = productRepository.findById(productId)
                 .orElseThrow(()->new RuntimeException("Product doesn't exist"));
@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Page<ProductResponse> getProducts(Pageable pageable, Integer brandId, Integer typeId, String keyword) {
+    public Page<ProductResponse> getProducts(Pageable pageable, String brandId, String typeId, String keyword) {
         log.info("Fetching Products...");
         Specification<Product> spec = Specification.where(null);
         if(brandId != null){

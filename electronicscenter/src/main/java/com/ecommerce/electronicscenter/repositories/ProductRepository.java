@@ -8,11 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends JpaRepository<Product, String> {
 
     Page<Product> findAll(Specification<Product> spec, Pageable pageable);
     Specification<Product> findByNameContaining(String Keyword);
-    Specification<Product> findByBrandId(Integer brandId);
-    Specification<Product> findByTypeId(Integer typeId);
-    Specification<Product> findByBrandIdAndTypeId(Integer brandId, Integer typeId);
+    Specification<Product> findByBrandId(String brandId);
+    Specification<Product> findByTypeId(String typeId);
+    Specification<Product> findByBrandIdAndTypeId(String brandId, String typeId);
 }

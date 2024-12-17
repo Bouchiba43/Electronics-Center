@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TypeResponse {
-    private Integer id;
+    private String id;
     private String name;
 }

@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> getProductById(@PathVariable("id") Integer productId) {
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable("id") String productId) {
         ProductResponse productResponse = productService.getProductById(productId);
         return new ResponseEntity<>(productResponse, HttpStatus.OK);
     }
@@ -39,8 +39,8 @@ public class ProductController {
     public ResponseEntity<Page<ProductResponse>> getProducts(
             @RequestParam(name= "page", defaultValue = "0") Integer page,
             @RequestParam(name= "size", defaultValue = "10") Integer size,
-            @RequestParam(name= "brandId", required = false) Integer brandId,
-            @RequestParam(name= "typeId", required = false) Integer typeId,
+            @RequestParam(name= "brandId", required = false) String brandId,
+            @RequestParam(name= "typeId", required = false) String typeId,
             @RequestParam(name= "keyword", required = false) String keyword,
             @RequestParam(name= "sort", defaultValue = "name") String sort,
             @RequestParam(name="order", defaultValue = "asc") String order
